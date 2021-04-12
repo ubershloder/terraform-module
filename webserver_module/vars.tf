@@ -35,18 +35,18 @@ variable "dns_support" {
 #                      AWS subnets vars                       #
 ###############################################################
 variable "first_subnet_cidr" {
-description = "CIDR block for first subnet"
-type = string
-default = "192.168.1.0/24"
+  description = "CIDR block for first subnet"
+  type        = string
+  default     = "192.168.1.0/24"
 }
 variable "second_subnet_cidr" {
-description = "CIDR block for second subnet"
-type = string
-default = "192.168.2.0/24"
+  description = "CIDR block for second subnet"
+  type        = string
+  default     = "192.168.2.0/24"
 }
 ### AWS route table var
 variable "route_cidr" {
-description = "CIDR for route table"
-type = string
-default = "0.0.0.0/0"
+  description = "CIDR for route table"
+  type        = string
+  default     = "0.0.0.0/0"
 }
