@@ -16,7 +16,12 @@ resource "aws_instance" "web_server" {
   ami                         = data.aws_ami.latest-ubuntu-image.id
   instance_type               = var.aws_instance_type
   associate_public_ip_address = var.public_ip
-  #availability_zone = var.avail_zone
-
-
+  disable_api_termination     = var.api_termination
+  hibernation                 = var.hibernation
+  monitoring                  = var.monitoring_option
+  subnet_id                   = aws_subnet.first_sub.id
+  vpc_security_group_ids      = [aws_security_group.instance.id]
+  tags = {
+    Name = "EC2"
+  }
 }

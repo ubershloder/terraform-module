@@ -6,13 +6,25 @@ variable "aws_instance_type" {
   type        = string
   default     = "t2.micro"
 }
-################################################################
-#                         AWS VPC vars                         #
-################################################################
 variable "public_ip" {
   description = "Define if public IP will be associated at launch"
   default     = true
 }
+variable "api_termination" {
+  description = "Enable/Disable API termination lock"
+  default     = false
+}
+variable "hibernation" {
+  description = "If true instance will be launched with hibernation support"
+  default     = false
+}
+variable "monitoring_option" {
+  description = "If true then instance will have detailed monitoring turned on"
+  default     = true
+}
+################################################################
+#                         AWS VPC vars                         #
+################################################################
 variable "vpc_cidr" {
   description = "CIDR block definition for VPC"
   type        = string
@@ -45,8 +57,10 @@ variable "second_subnet_cidr" {
   default     = "192.168.2.0/24"
 }
 ### AWS route table var
-variable "route_cidr" {
+variable "all_cidr" {
   description = "CIDR for route table"
   type        = string
   default     = "0.0.0.0/0"
 }
+
+
